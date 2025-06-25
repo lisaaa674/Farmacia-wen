@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane id="AnchorPane" prefHeight="447.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.farmacia.FacturaController">
+   <children>
+      <Pane layoutX="14.0" layoutY="14.0" prefHeight="159.0" prefWidth="574.0" style="-fx-background-color: #dbdada;">
+         <children>
+            <TextField fx:id="txtFact" disable="true" layoutX="14.0" layoutY="14.0" prefHeight="28.0" prefWidth="137.0" promptText="Nro Factura" />
+            <TextField fx:id="txtCliente" disable="true" layoutX="203.0" layoutY="14.0" prefHeight="28.0" prefWidth="137.0" promptText="Cliente" />
+            <TextField fx:id="txtProd" disable="true" layoutX="203.0" layoutY="72.0" prefHeight="28.0" prefWidth="137.0" promptText="Productos" />
+            <DatePicker fx:id="txtFecha" disable="true" layoutX="423.0" layoutY="14.0" prefHeight="28.0" prefWidth="137.0" />
+            <TextField fx:id="txtCant" disable="true" layoutX="423.0" layoutY="72.0" prefHeight="28.0" prefWidth="137.0" promptText="Cantidad" />
+            <Label layoutX="14.0" layoutY="130.0" text="Usuario/Empleado" />
+            <Button fx:id="btnAgregar" disable="true" layoutX="477.0" layoutY="110.0" mnemonicParsing="false" onAction="#AgregarFila" prefHeight="40.0" prefWidth="83.0" text="Agregar" />
+            <Button fx:id="btnBuscarCliente" disable="true" layoutX="356.0" layoutY="14.0" mnemonicParsing="false" onAction="#buscarCliente" prefHeight="28.0" prefWidth="31.0" text="buscarCliente" />
+            <Button fx:id="btnbuscarProd" disable="true" layoutX="356.0" layoutY="72.0" mnemonicParsing="false" onAction="#buscarProducto" prefHeight="28.0" prefWidth="31.0" text="buscarProd" />
+            <ComboBox fx:id="cmbMetodo" layoutX="14.0" layoutY="72.0" prefHeight="28.0" prefWidth="137.0" />
+         </children>
+      </Pane>
+      <TableView fx:id="tablaDetalle" layoutX="14.0" layoutY="179.0" prefHeight="200.0" prefWidth="574.0">
+        <columns>
+          <TableColumn fx:id="colCodigo" prefWidth="75.0" text="Codigo" />
+          <TableColumn fx:id="colDescripcion" prefWidth="257.60003662109375" text="Descripcion" />
+            <TableColumn fx:id="colPrecio" prefWidth="84.0" text="Precio" />
+            <TableColumn fx:id="colCantidad" prefWidth="79.199951171875" text="Cantidad" />
+            <TableColumn fx:id="colSubtotal" prefWidth="77.5999755859375" text="Subtotal" />
+        </columns>
+      </TableView>
+      <Pane layoutX="14.0" layoutY="386.0" prefHeight="55.0" prefWidth="373.0" style="-fx-background-color: #dbdada;">
+         <children>
+            <Button fx:id="btnNuevo" layoutX="14.0" layoutY="11.0" mnemonicParsing="false" onAction="#nuevo" prefHeight="34.0" prefWidth="67.0" text="Nuevo" />
+            <Button fx:id="btnGrabar" disable="true" layoutX="109.0" layoutY="11.0" mnemonicParsing="false" onAction="#guardarVenta" prefHeight="34.0" prefWidth="67.0" text="Grabar" />
+            <Button fx:id="btnCancelar" layoutX="201.0" layoutY="11.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="67.0" text="Cancelar" onAction="#cancelar"/>
+            <Button fx:id="btnImprimir" disable="true" layoutX="293.0" layoutY="11.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="67.0" text="Imprimir" />
+         </children>
+      </Pane>
+      <Label layoutX="405.0" layoutY="406.0" text="Total:" />
+      <TextField fx:id="txtTotal" alignment="CENTER_RIGHT" editable="false" layoutX="441.0" layoutY="402.0" prefHeight="23.0" prefWidth="147.0" promptText="0" />
+   </children>
+</AnchorPane>
