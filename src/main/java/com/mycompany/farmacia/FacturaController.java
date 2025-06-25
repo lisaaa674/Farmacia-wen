@@ -6,6 +6,10 @@ import com.mycompany.farmacia.modelo.Medicamento;
 import com.mycompany.farmacia.modelo.detalleVenta;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -242,4 +246,27 @@ public class FacturaController implements Initializable {
         alerta.setContentText(mensaje);
         alerta.showAndWait();
     }
+    
+    public int obtenerIdVentaPorNro(int nroFactura) {
+    int idVenta = -1;
+    String sql = "SELECT ID_Venta FROM venta WHERE nro = ?";
+
+    try (Connection cn = this.getConnection();
+         PreparedStatement ps = cn.prepareStatement(sql)) {
+        ps.setInt(1, nroFactura);
+        ResultSet rs = ps.executeQuery();
+        if (rs.next()) {
+            idVenta = rs.getInt("ID_Venta");
+        }
+    } catch (SQLException e) {
+        System.out.println("Error al obtener ID_Venta: " + e.getMessage());
+    }
+
+    return idVenta;
+}
+
+    private Connection getConnection() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
 }
